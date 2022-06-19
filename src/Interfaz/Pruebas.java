@@ -11,10 +11,9 @@ public class Pruebas {
 		do {
 			System.out.println("Selecciona una opcion \n" + 
 								"1. Agregar producto a inventario \n" +
-								"2. Consultar informacion del producto \n" +
-								"3. Agregar descuento \n" + 
-								"4. Eliminar Producto \n" +
-								"5. Salir \n");
+								"2. Eliminar Producto \n" +
+								"3. Consultar informacion del producto \n" +
+								"4. Salir \n");
 			op = sc.nextInt();
 			
 			switch(op) {
@@ -29,25 +28,18 @@ public class Pruebas {
 				break;
 				
 			case 2:
-				System.out.print("Escribe el identificador del producto: ");
-				int readCode2 = sc.nextInt();
-				System.out.println(CT.consultarInfo(readCode2));
-				break;
-			/*case 3:
-				System.out.print("Escriba el identificador del producto: ");
-				int readCode3 = sc.nextInt();
-				System.out.print("Descuento (%): ");
-				int readDescuento = sc.nextInt();
-				System.out.println(CT.GenDescuento(readCode3, readDescuento));
-				break;*/
-				
-			case 4:
 				System.out.println("Escribe el identificador: ");
 				int readCode4 = sc.nextInt();
 				System.out.print(CT.EliminarProducto(readCode4));
 				break;
 				
-			case 5:
+			case 3:
+				System.out.print("Escribe el identificador del producto: ");
+				int readCode2 = sc.nextInt();
+				System.out.println(CT.consultarInfo(readCode2));
+				break;
+				
+			case 4:
 				op = 100;
 				break;
 			}

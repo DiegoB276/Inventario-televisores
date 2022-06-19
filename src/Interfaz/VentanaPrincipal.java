@@ -116,7 +116,7 @@ public class VentanaPrincipal extends JFrame {
 		txtPrice.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				char letter = e.getKeyChar();
+				char letter = e.getKeyChar();        //Solo acepta numeros
 				if (letter < '0' || letter > '9')
 					e.consume();
 			}
@@ -286,6 +286,7 @@ public class VentanaPrincipal extends JFrame {
 		bntLimpiar001.setBounds(339, 249, 119, 31);
 		panel_2.add(bntLimpiar001);
 		
+		//Agregamos los radioButtons a un grupo
 		btnGroup.add(rdbtnSamsung);
 		btnGroup.add(rdbtnLG);
 		btnGroup.add(rdbtnSony);
@@ -308,7 +309,7 @@ public class VentanaPrincipal extends JFrame {
 					precio = Double.parseDouble(txtPrice.getText());
 
 					if((Integer.parseInt(txtCode.getText()) > numInt || Double.parseDouble(txtPrice.getText()) > numDouble)) {
-						JOptionPane.showMessageDialog(null, "Error, datos no validos");
+						JOptionPane.showMessageDialog(null, "Error, datos no validos"); //Verifica que los numeros no sean muy grandes
 						LimpiarText();
 					}else {
 						if(rdbtnSamsung.isSelected()) {
@@ -357,20 +358,21 @@ public class VentanaPrincipal extends JFrame {
 		panel.add(btnAgregarProducto);
 	}
 	
-
+	//Limpiar casillas
 	public void LimpiarText() {
 		txtCode.setText("");
 		txtPrice.setText("");
 	}
-
+	
+	//Validar que no esté vacia una casilla
 	public void ValidarCasillaVacia() throws Exception {
 		if (txtCode001.getText().isEmpty()) {
 			throw new Exception("Este campo es obligatorio");
 		}
 	}
 	
+	//Valida que no esten vacias varias casillas
 	public void ValidarVariasCasillasVacias() throws Exception {
-		
 		if (txtCode.getText().isEmpty() && txtPrice.getText().isEmpty()) {
 			throw new Exception("Campos invalidos");
 		}

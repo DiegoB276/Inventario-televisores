@@ -35,7 +35,8 @@ public class Televisor {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
+	
+	//Infrmacion de un producto.
 	@Override
 	public String toString() {
 		return "Codigo: " + this.code + "\n" + 

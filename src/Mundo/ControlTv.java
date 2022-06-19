@@ -8,6 +8,7 @@ public class ControlTv {
 		conTv = new ArrayList<Televisor>();
 	}
 	
+	//Verifica si el producto existe.
 	public int BuscarTv(int cod) {
 		for(int i=0; i<this.conTv.size(); i++) {
 			if(this.conTv.get(i).getCode() == cod) {
@@ -16,13 +17,8 @@ public class ControlTv {
 		}
 		return -1;
 	}
-	
-	/*public void valNullCode(int code) throws Exception{
-		if(code == null) {
-			throw new Exception("Error, debe llenar todos los campos");
-		}
-	}*/
-	
+
+	//Agrega un producto al inventario.
 	public String AgregarProducto(int cod, String marca, double price) {
 		int valPos = BuscarTv(cod);
 		if(valPos == -1) {
@@ -37,17 +33,7 @@ public class ControlTv {
 		return "Error, el producto ya está en el inventario \n";
 	}
 	
-	/*
-	public String GenDescuento(int code, int descuento) {
-		int valPos = BuscarTv(code);
-		double des = conTv.get(valPos).getPrecio() * (descuento/100);
-		if(valPos != -1 && code > 0 && descuento > 0) {
-			this.conTv.get(valPos).setPrecio(des);
-			return "xdxd";
-		}
-		return "nadaaaa";
-	}*/
-	
+	//Eliminar Producto
 	public String EliminarProducto(int cod) {
 		int valPos = BuscarTv(cod);
 		if(valPos >= 0) {
@@ -57,7 +43,7 @@ public class ControlTv {
 		return "El producto no existe";
 	}
 	
-	
+	//Consulta la informacion del producto.
 	public String consultarInfo(int cod) {
 		String ans;
 		int valPos = BuscarTv(cod);
